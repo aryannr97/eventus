@@ -19,10 +19,12 @@ func OnEventHandler(eventData interface{}) {
 
 func main() {
 	log.Println("Event wrapper library in GO")
+
+	//region can be passed as empty string for GCP
 	providerGCP := provider.CustomProvider{
-		PubSubModule: svc.NewGCPServiceProvider("origin-1205", "us-west-2"),
+		PubSubModule: svc.NewGCPServiceProvider("Account-ID/Project-ID", "region"),
 	}
 
-	providerGCP.PublishEvent("genesis", "us-west-2", "Hello world !!!")
-	providerGCP.SubscribeEvent("genesis", "us-west-2", OnEventHandler)
+	providerGCP.PublishEvent("topic-name", "region", "Hello world !!!")
+	providerGCP.SubscribeEvent("topic-name", "region", OnEventHandler)
 }
