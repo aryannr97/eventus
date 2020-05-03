@@ -1,7 +1,6 @@
 package main
 
 import (
-	"eventus/pkg/gcp"
 	"eventus/pkg/provider"
 	"log"
 )
@@ -21,9 +20,7 @@ func main() {
 	log.Println("Event wrapper library in GO")
 
 	//region can be passed as empty string for GCP
-	providerGCP := provider.CustomProvider{
-		PubSubModule: svc.NewGCPServiceProvider("Account-ID/Project-ID", "region"),
-	}
+	providerGCP := provider.NewCustomProvider("gcp", "Account-ID/Project-ID", "region")
 
 	providerGCP.PublishEvent("topic-name", "region", "Hello world !!!")
 	providerGCP.SubscribeEvent("topic-name", "region", OnEventHandler)
