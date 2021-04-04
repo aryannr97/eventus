@@ -2,12 +2,13 @@ package svc
 
 import (
 	"encoding/json"
-	"eventus/pkg/aws/initiater"
-	"eventus/pkg/domain"
+	"log"
+
+	"github.com/aryannr97/eventus/pkg/aws/initiater"
+	"github.com/aryannr97/eventus/pkg/domain"
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/service/sns"
 	"github.com/aws/aws-sdk-go/service/sqs"
-	"log"
 )
 
 type AWSServiceProvider struct {

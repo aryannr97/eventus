@@ -1,11 +1,12 @@
 package main
 
 import (
-	"eventus/pkg/provider"
 	"log"
+
+	"github.com/aryannr97/eventus/pkg/provider"
 )
 
-func OnEventHandler(eventData interface{}) {
+func onEventHandler(eventData interface{}) {
 	switch eventData.(type) {
 	case []uint8:
 		log.Println("Message:", string(eventData.([]uint8)))
@@ -23,5 +24,5 @@ func main() {
 	providerGCP := provider.NewCustomProvider("gcp", "Account-ID/Project-ID", "region")
 
 	providerGCP.PublishEvent("topic-name", "region", "Hello world !!!")
-	providerGCP.SubscribeEvent("topic-name", "region", OnEventHandler)
+	providerGCP.SubscribeEvent("topic-name", "region", onEventHandler)
 }

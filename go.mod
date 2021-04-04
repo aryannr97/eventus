@@ -1,4 +1,4 @@
-module eventus
+module github.com/aryannr97/eventus
 
 go 1.14
 

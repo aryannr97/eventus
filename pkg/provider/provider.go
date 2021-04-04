@@ -1,10 +1,11 @@
 package provider
 
 import (
-	"eventus/pkg/aws"
-	svc2 "eventus/pkg/gcp"
-	"eventus/pkg/pubsub"
 	"sync"
+
+	svc "github.com/aryannr97/eventus/pkg/aws"
+	svc2 "github.com/aryannr97/eventus/pkg/gcp"
+	"github.com/aryannr97/eventus/pkg/pubsub"
 )
 
 var wg sync.WaitGroup
